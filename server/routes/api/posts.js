@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 //Get Post ....
-router.get('/', (req,res)=>{
+router.get('/', async(req,res)=>{
     const posts=await loadPostsCollection();
     res.send(await posts.find({}).toArray());
     
@@ -33,7 +33,7 @@ router.delete('/:id',async(req,res)=>{
 
 async function loadostsCollection (){
     const clinet = await mongodb.MongoClient.connect 
-    ('.........................',{
+    ('mongodb+srv://Abc123:Abc123@cluster0.kdnoind.mongodb.net/?retryWrites=true&w=majority',{
         useNewUrlParser:true
     });
     return clinet.db('vue_express').collection('posts');

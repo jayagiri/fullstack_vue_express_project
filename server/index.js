@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
-const posts =require('/routes/api/posts');
+const posts =require('./routes/api/posts');
 app.use('/api/posts',posts);
 
 
@@ -20,7 +20,7 @@ if(process.env.NODE_ENV==='production' ){
     //Handle SPA>....
 
     app.get(/.*/,(req,res)=>res.sendFile(__dirname+ '/public/index.html'));
-}
+}ß
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`server started on port 5000 ${port}`));
